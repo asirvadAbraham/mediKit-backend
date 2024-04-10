@@ -1,35 +1,39 @@
 {
   "details": [
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Suresh Raina"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Dyran Alex"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
+      "doctor_name": "Alexander Rex"
+    },
+    {
+      "pin_code": "680503",
       "doctor_name": "Sajin Madanan"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Anjith Augustine T"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Sujatha C G"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Babu Alex"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Pramod Varghese Koshy"
     },
     {
-      "pin": "680503",
+      "pin_code": "680503",
       "doctor_name": "Susna Sarah Paul"
     }
   ]

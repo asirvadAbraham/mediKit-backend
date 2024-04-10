@@ -7,7 +7,16 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
+def is_doctor_name_present(request_doctor_name, doctor_name):
+    request_doctor_name_trimmed=request_doctor_name.strip()
+    if request_doctor_name_trimmed:
+        request_name_split_array=request_doctor_name_trimmed.split()
+        for element in request_name_split_array:
+            if element.lower() in doctor_name.lower():
+                return True
+        return False
+    else:
+        return True
 
 @app.route('/get_city_name', methods=['POST'])
 def get_city_name():
@@ -17,9 +26,7 @@ def get_city_name():
     if not postal_code:
         return jsonify({'error': 'Postal code parameter is required'}), 400
     url = f'https://api.postalpincode.in/pincode/{postal_code}'
-    print('url:',(url))
     response = requests.get(url)
-    print('response:',(response))
     response_data = response.json()
 
     if response_data and response_data[0]['Status'] == 'Success':
@@ -35,9 +42,9 @@ def get_doctor_details():
     with open(json_data_file_path) as dataFile:
         dataSet=json.load(dataFile)
     try:
-        requestData = request.json
-        print("Received data:", requestData)
-        result =list(filter(lambda value: value['pin']==requestData['pin'], dataSet['details']))
+        request_data = request.json
+        print("Received data:", request_data)
+        result =list(filter(lambda value: value['pin_code']==request_data['pin_code'] and is_doctor_name_present(request_data['doctor_name'],value['doctor_name']), dataSet['details']))
         print('Result:',(result))
       
         return {'data_set':result}, 200
